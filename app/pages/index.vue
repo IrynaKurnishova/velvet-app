@@ -14,19 +14,20 @@
     </div>
 
     <!-- nav -->
+    <!-- nav -->
     <div class="flex justify-around py-3 border-b border-[#1e1e1e]">
-      <button class="flex flex-col items-center gap-1 text-[9px] tracking-wider text-[#C9A96E]">
+      <NuxtLink to="/" class="flex flex-col items-center gap-1 text-[9px] tracking-wider text-[#C9A96E]">
         <span class="text-lg">⌂</span> Home
-      </button>
-      <button class="flex flex-col items-center gap-1 text-[9px] tracking-wider text-[#444]">
+      </NuxtLink>
+      <NuxtLink to="/services" class="flex flex-col items-center gap-1 text-[9px] tracking-wider text-[#444]">
         <span class="text-lg">✂</span> Services
-      </button>
-      <button class="flex flex-col items-center gap-1 text-[9px] tracking-wider text-[#444]">
+      </NuxtLink>
+      <NuxtLink to="/booking" class="flex flex-col items-center gap-1 text-[9px] tracking-wider text-[#444]">
         <span class="text-lg">◷</span> Book
-      </button>
-      <button class="flex flex-col items-center gap-1 text-[9px] tracking-wider text-[#444]">
+      </NuxtLink>
+      <NuxtLink to="/profile" class="flex flex-col items-center gap-1 text-[9px] tracking-wider text-[#444]">
         <span class="text-lg">◯</span> Profile
-      </button>
+      </NuxtLink>
     </div>
 
     <!-- services -->
