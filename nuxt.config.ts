@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+  compatibilityDate: '2026-07-19',
   modules: [
     '@nuxtjs/tailwindcss',
     '@vite-pwa/nuxt',
@@ -24,4 +25,5 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],
 })
