@@ -8,7 +8,7 @@
       </NuxtLink>
       <div>
         <p class="text-sm font-serif">Book a visit</p>
-        <p class="text-[9px] tracking-wider text-[#5a4e38]">Hair styling · 60 min</p>
+        <p class="text-[9px] tracking-wider text-[#5a4e38]">{{ selectedService }} · 60 min</p>
       </div>
     </div>
 
@@ -116,6 +116,8 @@
 
 <script setup lang="ts">
 const supabase = useSupabaseClient()
+const route = useRoute()
+const selectedService = ref((route.query.service as string) || 'Hair styling')
 
 const specialists = [
   { name: 'Anna', initials: 'A' },
@@ -151,7 +153,7 @@ async function confirmBooking() {
     specialist: selected.specialist,
     booking_date: `2026-07-${String(selected.day).padStart(2, '0')}`,
     booking_time: selected.time,
-    service: 'Hair styling',
+    service: selectedService.value,
   })
 
   loading.value = false
@@ -159,5 +161,4 @@ async function confirmBooking() {
   if (!error) {
     success.value = true
   }
-}
-</script>
+}</script>

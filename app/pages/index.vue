@@ -34,17 +34,18 @@
     <div class="px-4 pt-4">
       <p class="text-[9px] tracking-[0.16em] text-[#5a4e38] uppercase mb-3">Our services</p>
       <div class="flex gap-3 overflow-x-auto pb-4">
-        <div
+        <NuxtLink
             v-for="service in services"
             :key="service.name"
-            class="flex-shrink-0 w-28 bg-[#151515] border border-[#222] rounded-xl p-3"
+            :to="`/booking?service=${service.name}`"
+            class="flex-shrink-0 w-28 bg-[#151515] border border-[#222] rounded-xl p-3 active:border-[#C9A96E] transition-all"
         >
           <div class="w-8 h-8 rounded-full bg-[#1e1a0e] border border-[#C9A96E]/30 flex items-center justify-center mb-2 text-[#C9A96E] text-sm">
             {{ service.icon }}
           </div>
           <p class="text-[9px] text-[#c8b89a] mb-1 leading-tight">{{ service.name }}</p>
           <p class="text-[9px] text-[#C9A96E]">{{ service.price }}</p>
-        </div>
+        </NuxtLink>
       </div>
     </div>
 
