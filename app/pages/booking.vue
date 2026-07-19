@@ -91,21 +91,32 @@
     </div>
 
     <!-- confirm -->
-    <div class="px-4 mt-6 pb-8">
-      <button
-          class="w-full py-3 text-xs tracking-[0.12em] uppercase rounded-lg border transition-all"
-          :class="selected.specialist && selected.day && selected.time
-          ? 'border-[#C9A96E] text-[#C9A96E] hover:bg-[#1e1a0e]'
-          : 'border-[#222] text-[#333] cursor-default'"
-      >
-        Confirm booking
-      </button>
+    <!-- success message -->
+    <div v-if="success" class="px-4 mt-6 pb-8 text-center">
+      <p class="text-[#C9A96E] text-sm tracking-wider mb-1">Booking confirmed</p>
+      <p class="text-[#5a4e38] text-xs">We'll send you a reminder before your visit</p>
+      <NuxtLink to="/" class="block mt-4 text-xs text-[#444] underline">Back to home</NuxtLink>
     </div>
 
+    <!-- confirm button -->
+    <div v-else class="px-4 mt-6 pb-8">
+      <button
+          @click="confirmBooking"
+          :disabled="loading"
+          class="w-full py-3 text-xs tracking-[0.12em] uppercase rounded-lg border transition-all"
+          :class="selected.specialist && selected.day && selected.time
+      ? 'border-[#C9A96E] text-[#C9A96E] hover:bg-[#1e1a0e]'
+      : 'border-[#222] text-[#333] cursor-default'"
+      >
+        {{ loading ? 'Confirming...' : 'Confirm booking' }}
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+const supabase = useSupabaseClient()
+
 const specialists = [
   { name: 'Anna', initials: 'A' },
   { name: 'Marco', initials: 'M' },
@@ -127,4 +138,26 @@ const selected = reactive({
   day: 16,
   time: '11:00',
 })
+
+const loading = ref(false)
+const success = ref(false)
+
+async function confirmBooking() {
+  if (!selected.specialist || !selected.day || !selected.time) return
+
+  loading.value = true
+
+  const { error } = await supabase.from('bookings').insert({
+    specialist: selected.specialist,
+    booking_date: `2026-07-${String(selected.day).padStart(2, '0')}`,
+    booking_time: selected.time,
+    service: 'Hair styling',
+  })
+
+  loading.value = false
+
+  if (!error) {
+    success.value = true
+  }
+}
 </script>
