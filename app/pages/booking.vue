@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#0D0D0D] text-[#F5EDD8]">
+  <div class="min-h-screen bg-[#0D0D0D] text-[#F5EDD8] max-w-md mx-auto relative">
 
     <!-- header -->
     <div class="flex items-center gap-3 px-4 py-4 border-b border-[#1e1e1e]">

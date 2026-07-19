@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#0D0D0D] text-[#F5EDD8]">
+  <div class="min-h-screen bg-[#0D0D0D] text-[#F5EDD8] max-w-md mx-auto relative">
 
     <!-- hero -->
     <div class="relative h-[55vh] flex flex-col justify-end p-6 bg-[#1a1410]">
