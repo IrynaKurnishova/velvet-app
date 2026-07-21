@@ -73,6 +73,12 @@
       >
         Reserve your time
       </NuxtLink>
+      <NuxtLink
+          to="/chat"
+          class="block w-full mt-2 border border-[#C9A96E]/40 text-[#C9A96E] text-xs tracking-[0.12em] uppercase text-center py-3 rounded-lg hover:bg-[#1e1a0e] transition-all"
+      >
+        Ask AI assistant
+      </NuxtLink>
     </div>
 
   </div>

@@ -6,6 +6,9 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@pinia/nuxt',
   ],
+  runtimeConfig: {
+    groqApiKey: '',
+  },
   supabase: {
     redirect: false,
   },
